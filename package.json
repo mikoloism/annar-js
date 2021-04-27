@@ -4,6 +4,7 @@
 	"description": "JSON concept for compile to HTML (browser, nodejs, functional)",
 	"main": "./src/pson.js",
 	"scripts": {
+		"pson:compiler": "nodemon example/compiler/index.js",
 		"start": "nodemon src/pson.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
