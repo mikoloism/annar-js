@@ -1819,3 +1819,12 @@ node_modules/xdg-basedir/license
 node_modules/xdg-basedir/package.json
 node_modules/xdg-basedir/readme.md
 .vscode/settings.json
+example/compiler/index.js
+example/compiler/input.pson
+example/jsh/main.scss
+example/with-components/main.js
+example/with-components/components/p-body.js
+example/with-components/components/p-btn.js
+example/with-components/components/p-container.js
+example/with-components/components/p-icon.js
+example/with-components/components/p-view.js
