@@ -40,6 +40,9 @@ const html = {
 			? document.createElement('template')
 			: document.createDocumentFragment();
 	},
+	text(value) {
+		return document.createTextNode(value);
+	},
 };
 
 module.exports = html;

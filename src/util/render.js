@@ -1,32 +1,34 @@
 const _ = require('lodash');
-const doc = require('./doc');
+const dom = require('./dom');
 const html = require('./html');
 
-const App = html.fragment();
-function append(tag, child) {
-	doc.append(child, tag);
-}
-function mount(moutPoint = document.getElementById('app')) {
-	doc.replace(moutPoint).with(App);
-}
-function element({
-	class: className,
-	tag = 'div',
-	id,
-	text,
-	children,
-	parent,
-	html: _html,
-}) {
-	let _tag = html.create('div');
-	if (text) {
-		let _text = document.createTextNode(text);
-		append(_tag, _text);
-	}
-	if (id) doc.id(_tag, id);
-	if (className) doc.class(_tag, className);
-	if (_html) doc.append(_tag).from(html.from(_html));
-	if (children) doc.append(_tag).from(...children);
-	if (parent) doc.append(_tag, parent);
-	return _tag;
-}
+// const element = { ...document.htmlTags }; // pson.element.div(...other);
+const create = (tag, other) => {
+	return from({ tag, ...other });
+};
+const from = (props) => {
+	let tag = html.create(props.tag);
+	const AsChild = ['children', 'html', 'text', 'md', 'from'];
+	const AsAttr = ['id', 'class', 'data-', '...attr'];
+	// AsAttr
+	if (props.id) dom.id(tag, props.id);
+	if (props.class) dom.class(tag).add(props.class);
+	if (props.data) dom.data(tag).add(props.data);
+	if (props.attrs) dom.attrs(tag, props.attrs);
+
+	// AsChild
+	if (props.children)
+		_.forEach(props.children, (child) => dom.append(tag).with(from(child)));
+	else if (props.html) dom.append(tag).from(html.from(props.html));
+	else if (props.text) dom.append(tag).with(html.text(props.text));
+	else if (props.md) dom.append(tag).with(html.create('div'));
+	else if (props.from) dom.append(tag).from(props.from);
+
+	if (props.parent) dom.append(props.parent).with(tag);
+
+	return tag;
+};
+
+module.exports = from;
+
+//# dom.append(tag).with(md.render(props.md));

@@ -7,19 +7,19 @@ const classFrom = (arg) => {
 		return isValid ? arg : arg.filter((cls) => _.isString(cls));
 	} else return [];
 };
-const doc = {
+const dom = {
 	attr(element, attr, value) {
 		element.setAttribute(attr, value);
 	},
 	attrs(element, attributes) {
 		if (_.isObject(attributes)) {
 			_.forEach(attributes, (value, attr) =>
-				doc.attr(element, attr, value),
+				dom.attr(element, attr, value),
 			);
 		}
 	},
 	id(el, id) {
-		doc.attr(el, 'id', id);
+		dom.attr(el, 'id', id);
 	},
 	class(element, classes = null) {
 		if (classes !== null) {
@@ -79,24 +79,24 @@ const doc = {
 			  };
 	},
 };
-module.exports = doc;
+module.exports = dom;
 
 /** CLASS
  * @description
  *
- * doc.class(el).add(['class1', 'class-2', ...]);\
- * doc.class(el).add('class1', 'class-2', ...);\
- * doc.class(el).add('class1 class-2 ...');\
- * doc.class(el).remove(...);\
- * doc.class(el).toggle('class-1', 'class-2'); // replace\
- * doc.class(el).exist('class'); // if isExist return true and else return false\
- * doc.class(el, 'classes'); // if exist, remove and else add\
+ * dom.class(el).add(['class1', 'class-2', ...]);\
+ * dom.class(el).add('class1', 'class-2', ...);\
+ * dom.class(el).add('class1 class-2 ...');\
+ * dom.class(el).remove(...);\
+ * dom.class(el).toggle('class-1', 'class-2'); // replace\
+ * dom.class(el).exist('class'); // if isExist return true and else return false\
+ * dom.class(el, 'classes'); // if exist, remove and else add\
  */
 /** APPEND
  * @description
  *
- * doc.append('child').to('parent');
- * doc.append('parent').with('child');
- * doc.append('parent').from(...children);
- * doc.append('child', 'parent');
+ * dom.append('child').to('parent');
+ * dom.append('parent').with('child');
+ * dom.append('parent').from(...children);
+ * dom.append('child', 'parent');
  */
