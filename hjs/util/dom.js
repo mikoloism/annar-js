@@ -1,13 +1,20 @@
-const _ = require('lodash');
+import _ from 'lodash';
+import jsdom, { JSDOM } from 'jsdom';
+
+let document = new jsdom.JSDOM().window.document;
 
 const classFrom = (arg) => {
 	if (_.isString(arg)) return arg.split(' ');
-	else if (_.isArray(arg)) {
+
+	if (_.isArray(arg)) {
 		let isValid = arg.every((cls) => _.isString(cls));
 		return isValid ? arg : arg.filter((cls) => _.isString(cls));
-	} else return [];
+	}
+
+	return [];
 };
 const dom = {
+	doc: new jsdom.JSDOM().window.document,
 	attr(element, attr, value) {
 		element.setAttribute(attr, value);
 	},
@@ -50,7 +57,6 @@ const dom = {
 			};
 		}
 	},
-
 	append(element, element2 = null) {
 		if (element2 !== null) {
 			element2.append(element);
@@ -78,8 +84,29 @@ const dom = {
 					},
 			  };
 	},
+	select(selector = '#app') {
+		let _docu = new JSDOM();
+		let docc = _docu.window.document;
+		return docc.querySelector(selector);
+	},
+
+	// * POWERED: https://github.com/miko-github/dash-dash
+	is: {
+		html(obj) {
+			return (
+				_.isObject(obj) && obj !== null && obj instanceof HTMLElement
+			);
+		},
+		node(obj) {
+			return _.isObject(obj) && obj !== null && obj instanceof Node;
+		},
+		element(obj) {
+			return _.isObject(obj) && obj !== null && obj instanceof document;
+		},
+	},
 };
-module.exports = dom;
+
+export default dom;
 
 /** CLASS
  * @description

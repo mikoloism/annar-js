@@ -1,4 +1,8 @@
-const _ = require('lodash');
+import _ from 'lodash';
+import jsdom from 'jsdom';
+
+let document = new jsdom.JSDOM().window.document;
+
 const html = {
 	/** #from-1 */
 	from(html) {
@@ -6,12 +10,14 @@ const html = {
 		frag.innerHTML = html;
 		return [...frag.childNodes];
 	},
+
 	/** #from-2 */
 	from2(html) {
 		const frag = document.createElement('template');
 		frag.innerHTML = html;
 		return frag.content;
 	},
+
 	/** #from-3 */
 	from3(html) {
 		const frag = document.createElement('div');
@@ -45,7 +51,7 @@ const html = {
 	},
 };
 
-module.exports = html;
+export default html;
 
 /** from-1
  * `<div>text</div>`
