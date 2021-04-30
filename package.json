@@ -5,7 +5,7 @@
 	"main": "./src/pson.js",
 	"scripts": {
 		"dev": "nodemon --exec babel-node example/with-components/main.js",
-		"start": "nodemon src/pson.js",
+		"start": "node dist/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
