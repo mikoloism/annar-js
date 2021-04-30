@@ -1,4 +1,5 @@
-import render from './util/mount';
+import Render from './utils/render';
+import Compile from './utils/compile';
 
 const pson = (objects, element) => {
 	let HTMLPson = render(objects, element);
