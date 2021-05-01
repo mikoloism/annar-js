@@ -1,8 +1,8 @@
 import render from './render';
 import renderFile from './compiler';
 import createHjs, { Component, createComponent } from './create-hjs';
-import JOM from './jom';
-import DOM from './dom';
+import * as JOM from './jom';
+import * as DOM from './dom';
 import utils from './utils';
 
 export { renderFile, createHjs, Component, createComponent, DOM, JOM, utils };
