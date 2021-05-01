@@ -42,16 +42,17 @@ const dom = function hjsDOM(HTMLObject) {
 		},
 		class(value) {
 			if (value) {
+				if (_.isArray(value) || _.isString(value)) {
+					let vClass = className(value);
+					vClass.forEach((v) => HTMLObject.classList.toggle(v));
+					return this;
+				}
 				if (_.isObject(value)) {
 					_.forEach(value, (v, key) => {
 						HTMLObject.classList.replace(key, v);
 					});
 					return this;
 				}
-
-				let vClass = className(value);
-				vClass.forEach((v) => HTMLObject.classList.toggle(v));
-				return this;
 			}
 			return HTMLObject.classList;
 		},
@@ -72,6 +73,10 @@ const dom = function hjsDOM(HTMLObject) {
 		},
 		select(selector) {
 			return document.querySelector(selector);
+		},
+		currentElement() {
+			// if(value) HTMLObject = value; // value is param;
+			return HTMLObject;
 		},
 	};
 };
@@ -107,5 +112,5 @@ const html = {
 	},
 };
 
-export default { dom, html };
-// * POWERED: https://github.com/miko-github/dash-dash
+export { dom, html };
+// * POWERED: https://github.com/miko-github/dash-dash 🐙
