@@ -1,4 +1,4 @@
 import { document, window, JSDOM } from './document';
-import dom, { html } from './html';
+import { dom, html } from './html';
 
-export { dom, html, window, document, JSDOM };
+export default { dom, html, window, document, JSDOM };

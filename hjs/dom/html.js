@@ -107,6 +107,5 @@ const html = {
 	},
 };
 
-export { html };
-export default dom;
+export default { dom, html };
 // * POWERED: https://github.com/miko-github/dash-dash
