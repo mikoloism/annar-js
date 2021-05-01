@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import jsdom from 'jsdom';
-
 let document = new jsdom.JSDOM().window.document;
 
 const html = {

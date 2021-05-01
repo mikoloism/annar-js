@@ -22,9 +22,13 @@ const from = function HTMLPson(props) {
 			let _child = HTMLPson(child);
 			dom.append(tag).with(_child);
 		});
-	} else if (props?.html) dom.append(tag).from(html.from2(props.html));
-	else if (props?.text) dom.append(tag).with(html.text(props.text));
-	else if (props?.md) dom.append(tag).with(html.create('div'));
+	} else if (props?.html) {
+		// FIXED
+		dom.append(tag).from(html.from2(props.html));
+	} else if (props?.text) {
+		// FIXED
+		dom.append(tag).with(html.text(props.text));
+	} else if (props?.md) dom.append(tag).with(html.create('div'));
 	else if (props?.from) dom.append(tag).from(props.from);
 
 	if (props?.parent) dom.append(props.parent).with(tag);

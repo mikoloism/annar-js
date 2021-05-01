@@ -1,7 +1,7 @@
 import fs from 'fs';
 import dom from './dom';
 import Html from './html';
-import renderer from './render';
+import renderer from './render.js.hidden';
 
 const render = (pson) => {
 	return renderer(pson);

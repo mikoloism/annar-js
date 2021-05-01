@@ -3,28 +3,9 @@ import jsdom, { JSDOM } from 'jsdom';
 
 let document = new jsdom.JSDOM().window.document;
 
-const classFrom = (arg) => {
-	if (_.isString(arg)) return arg.split(' ');
-
-	if (_.isArray(arg)) {
-		let isValid = arg.every((cls) => _.isString(cls));
-		return isValid ? arg : arg.filter((cls) => _.isString(cls));
-	}
-
-	return [];
-};
+const classFrom = (arg) => {};
 const dom = {
 	doc: new jsdom.JSDOM().window.document,
-	attr(element, attr, value) {
-		element.setAttribute(attr, value);
-	},
-	attrs(element, attributes) {
-		if (_.isObject(attributes)) {
-			_.forEach(attributes, (value, attr) =>
-				dom.attr(element, attr, value),
-			);
-		}
-	},
 	id(el, id) {
 		dom.attr(el, 'id', id);
 	},
@@ -57,24 +38,7 @@ const dom = {
 			};
 		}
 	},
-	append(element, element2 = null) {
-		if (element2 !== null) {
-			element2.append(element);
-			return undefined;
-		} else {
-			return {
-				to(parent) {
-					parent.appendChild(element);
-				},
-				with(child) {
-					element.appendChild(child);
-				},
-				from(...children) {
-					children.forEach((child) => element.appendChild(child));
-				},
-			};
-		}
-	},
+	append(element, element2 = null) {},
 	replace(older, replacement = null) {
 		return replacement !== null
 			? older.replaceWith(replacement)
