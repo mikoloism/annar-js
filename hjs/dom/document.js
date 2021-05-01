@@ -1,6 +1,7 @@
 import { JSDOM } from 'jsdom';
 // import fs from 'fs';
 // parse template (public/index.html) as parameter
+// OR: JSDOM.fromFile();
 
 let window, document;
 
