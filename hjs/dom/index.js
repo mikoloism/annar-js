@@ -1,6 +1,5 @@
-import jsdom, { JSDOM } from 'jsdom';
+import { document, window } from './document';
+import dom, { html } from './html';
 
-const jsDom = new JSDOM();
-const document = jsDom.window.document;
-
-export default {};
+export { html, window, document, JSDOM };
+export default dom;
