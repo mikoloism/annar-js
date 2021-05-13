@@ -1,10 +1,6 @@
 ## Naming
 
--   HSON:
-    actually, HTML + JSON is,
-    and i think, JSON is 'Javascript Son'
-    but actaully is javascript object nataunal
-    i think, HTML with JSON syntax but this is very hard
+-   HSON: HTML + JSON
 -   JSH:
     this come from,
 
