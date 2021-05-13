@@ -1,58 +1,20 @@
-## Naming
+# HJS
 
--   HSON: HTML + JSON
--   JSH:
-    this come from,
+> Hypertext JavaScript
 
-    -   Javascript Sassy HTML
-    -   Javascript HTML
-    -   Javascript side HTML
+## install
 
--   HJS:
-    -   HTML Javascript
-    -   HTML Javascript Sassy
-    -   HTML Javascript son
+`$ npm i --save-dev hjs`
 
-```yml
-div {
-  class: ['class-1', 'class-2'], # or `class: 'class-1 class-2'`
-  attrs: {
-    id: 'some-id',
-    ...other attributes
-  }
-}
+## usage
+
+```js
+import { render } from 'hjs';
+const MyComponent = {
+  tag: 'div',
+  class: 'container',
+  dataset: { flex: 'row' },
+};
+const html = render(MyComponent);
+// <div class="container" data-flex="row"></div>
 ```
-
-### Model 3
-
-````scss
-@mixin b-btn($type: 'secondary', $text: 'btn-click', $icon: 'cursor'){
-  div.btn.btn-#{type}{
-    i [class=`fa.fa-${icon}`]{}
-    !{text}
-  }
-}
-#app { // default div
-  &div#second-id {}
-  &div [id='first-id'] {}
-
-  &div.class-a.class-b {}
-  &div [class='class-1 class-2'] {}
-
-  &div {
-    span.child {
-      @if($right.isEnabled()){
-        Hi, Im am stron { 'developer' } for
-        follow me please click a [href='#'] {
-          &img [src='follow-icon.jpg']{}
-          'click this icon'
-        }
-      } @else 'no thing to see!';
-    }
-    &label [for='#form'] {
-      input [type='number', value=0]{}
-      @include b-btn('primary', 'arrow-up', 'increase');
-    }
-  }
-}```
-````
