@@ -1,4 +1,4 @@
-# HJS
+# Hypertext JavaScript => <span style="background-color: gold; color: #444; padding: 4px 9px; border-radius: 3px;">HJS</span>
 
 > Hypertext JavaScript
 
