@@ -10,11 +10,14 @@
 
 ```js
 import { render } from 'hjs';
+
 const MyComponent = {
   tag: 'div',
   class: 'container',
   dataset: { flex: 'row' },
 };
+
 const html = render(MyComponent);
-// <div class="container" data-flex="row"></div>
+
+//=> <div class="container" data-flex="row"></div>
 ```
