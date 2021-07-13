@@ -4,7 +4,10 @@
 
 ## install
 
-`$ npm i --save-dev hjs`
+`$ npm i --save-dev annar-js`
+<!-- anar-js -->
+<!-- anar.js -->
+<!-- annar.js -->
 
 ## usage
 
