@@ -1,4 +1,5 @@
-[WIP] : this project is just instance and concept of the real project
+<p align="right">WIP</p>
+warn : this project is just instance and concept of the real project
 
 # Annar Js
 
@@ -7,7 +8,9 @@ Hypertext JavaScript
 
 ## install
 
-`$ npm i --save-dev annar-js`
+not available to moment.
+
+<!-- `$ npm i --save-dev annar-js` -->
 <!-- anar-js -->
 <!-- anar.js -->
 <!-- annar.js -->
